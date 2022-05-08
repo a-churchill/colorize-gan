@@ -59,7 +59,7 @@ class ColorizeGAN(nn.Module):
     """GAN for colorizing images."""
 
     def __init__(self) -> None:
-        super(ColorizeGAN, self).__init__()
+        super().__init__()
 
         self.generator = Generator()
         self.generator.apply(init_weights)
@@ -177,4 +177,3 @@ class ColorizeGAN(nn.Module):
             self.l1_loss.item(),
             self.saturation_loss.item(),
         ]
-

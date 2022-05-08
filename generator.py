@@ -37,7 +37,7 @@ class UNetLayer(nn.Module):
             outermost (bool, optional): whether this is the outermost layer. Defaults to
             `False`.
         """
-        super(UNetLayer, self).__init__()
+        super().__init__()
         self.outermost = outermost
         innermost = submodule is None
 
@@ -78,7 +78,7 @@ class Generator(nn.Module):
     """Generator to colorize images."""
 
     def __init__(self):
-        super(Generator, self).__init__()
+        super().__init__()
         # create innermost first
         innermost = UNetLayer(CONV_CHANNELS * 8, CONV_CHANNELS * 8)
 

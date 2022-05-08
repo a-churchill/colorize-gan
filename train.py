@@ -1,6 +1,6 @@
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from debug import plot_losses, preview_images
+from debug import plot_losses
 from gan import ColorizeGAN
 
 from parameters import DEVICE, NUM_EPOCHS

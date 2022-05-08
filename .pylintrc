@@ -1,7 +1,7 @@
 [BASIC]
 
 # warnings to ignore
-disable=line-too-long, missing-module-docstring, no-member, undefined-loop-variable
+disable=line-too-long, missing-module-docstring, no-member, undefined-loop-variable, too-many-arguments, too-many-instance-attributes
 
 # good variable names which should always be accepted, separated by a comma.
 good-names=i, j, k, x

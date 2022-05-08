@@ -10,7 +10,7 @@ class Discriminator(nn.Module):
     """Discriminator to determine if an image is appropriately colorized."""
 
     def __init__(self) -> None:
-        super(Discriminator, self).__init__()
+        super().__init__()
 
         layers: List[nn.Module] = [
             nn.Conv2d(3 + 1, CONV_CHANNELS, kernel_size=4, stride=2, padding=1),
