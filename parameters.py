@@ -14,7 +14,7 @@ ADAM_BETA = 0.5
 BATCH_SIZE = 128
 
 # convolutional layers per level of our generator and discriminator
-CONV_CHANNELS = 64
+CONV_CHANNELS = 72
 
 # location of data on disk
 DATA_DIRECTORY = "data"
@@ -29,10 +29,10 @@ IMAGE_SIZE = 128
 LAMBDA_L1 = 100.0
 
 # learning rate for optimizers
-LEARNING_RATE = 0.0002
+LEARNING_RATE = 0.0001
 
 # number of training epochs
-NUM_EPOCHS = 20
+NUM_EPOCHS = 40
 
 # number of workers to use for the dataloader
 WORKERS = 4

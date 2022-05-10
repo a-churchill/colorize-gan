@@ -154,7 +154,7 @@ class ColorizeGAN(nn.Module):
         self.l1_loss = F.l1_loss(self.fake_output, self.real_output) * LAMBDA_L1
 
         self.saturation_loss = (
-            F.l1_loss(saturation(self.fake_output), saturation(self.real_output))
+            F.l1_loss(saturation(self.fake_output), saturation(self.real_output),)
             * LAMBDA_L1
         )
 

@@ -1,3 +1,4 @@
+import os
 import cv2
 import numpy as np
 import PIL.Image as Image
@@ -41,10 +42,10 @@ def rgb_to_lab_tensor(pic: Image.Image) -> torch.Tensor:
     return tensor
 
 
-def get_dataset() -> ImageFolder:
+def get_dataset(train: bool) -> ImageFolder:
     """Gets the dataset, and sets up the transforms"""
     return ImageFolder(
-        DATA_DIRECTORY,
+        os.path.join(DATA_DIRECTORY, "train" if train else "test"),
         transform=transforms.Compose(
             [
                 transforms.Resize(IMAGE_SIZE),

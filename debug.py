@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torchvision.utils as utils
+from torch.utils.data import DataLoader
+
+from gan import ColorizeGAN
+from parameters import DEVICE
 
 
 def plot_losses(losses, legend=None):
@@ -35,7 +39,7 @@ def preview_images(image_batch: torch.Tensor, title="Preview Images", grid_size=
         )
     ).permute((0, 3, 1, 2))
 
-    plt.figure(figsize=(8, 8))
+    fig = plt.figure(figsize=(8, 8))
     plt.axis("off")
     plt.title(title)
     plt.imshow(
@@ -43,4 +47,21 @@ def preview_images(image_batch: torch.Tensor, title="Preview Images", grid_size=
             utils.make_grid(converted_images, nrow=grid_size, padding=2), (1, 2, 0),
         )
     )
-    plt.show()
+    return fig
+
+
+def run_model(model: ColorizeGAN, dataloader: DataLoader):
+    """Runs the model on the given dataloader.
+
+    Args:
+        model (ColorizeGAN): trained model
+        dataloader (DataLoader): data loader to load test data (should be different from training 
+        data)
+    """
+    model.eval()
+    batch, _ = next(iter(dataloader))
+    batch = batch.to(DEVICE)
+    return preview_images(
+        torch.cat((batch[:32], model(batch)[:32]), dim=0), "Results", 8
+    )
+
